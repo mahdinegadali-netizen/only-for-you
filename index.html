@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>برای تو</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0%,#28201c 0,#0d0d0f 36%,#050506 100%);color:#f3eee9;font-family:Tahoma,Arial,sans-serif;display:grid;place-items:center;padding:22px}
+.card{width:min(92vw,430px);border:1px solid #5d5048;border-radius:26px;padding:34px 24px;background:rgba(12,12,14,.88);box-shadow:0 20px 80px #000}
+.heart{font-size:31px;text-align:center;color:#e7c6a8;margin-bottom:18px}h1{font-size:21px;text-align:center;font-weight:500;margin:0 0 12px}p{font-size:14px;text-align:center;color:#aaa;margin:0 0 24px;line-height:1.9}
+input{width:100%;padding:15px 18px;border-radius:18px;border:1px solid #6c5b50;background:#09090a;color:white;font-size:18px;text-align:center;outline:none}
+button{width:100%;margin-top:14px;padding:14px;border-radius:18px;border:1px solid #d3aa87;background:#241d19;color:#f7e9dd;font-size:16px}
+#error{height:22px;color:#d99;text-align:center;margin-top:12px;font-size:13px}#secret{display:none;width:min(96vw,700px)}#secret img{width:100%;display:block;border-radius:18px;box-shadow:0 20px 80px #000}
+</style></head>
+<body>
+<div id="gate" class="card"><div class="heart">♡</div><h1>برای دیدن چیزی که برات گذاشتم…</h1><p>اول باید رمزشو بدونی.</p>
+<input id="pw" type="password" placeholder="رمز عبور" autocomplete="off"><button onclick="unlock()">بازش کن</button><div id="error"></div></div>
+<div id="secret"><img src="photo.jpg" alt=""></div>
+<script>
+const expected = ">♡<ARloizrheazna";
+function unlock(){const value=document.getElementById('pw').value;if(value===expected){document.getElementById('gate').style.display='none';document.getElementById('secret').style.display='block'}else{document.getElementById('error').textContent='رمز درست نیست…'}}
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+</script></body></html>
